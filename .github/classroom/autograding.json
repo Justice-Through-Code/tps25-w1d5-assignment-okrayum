@@ -1,24 +1,23 @@
 {
-    "tests": [
-      {
-        "name": "Pytest - Dog API Tests",
-        "setup": "",
-        "run": "pytest -v dog_api_tests.py",
-        "input": "",
-        "output": "",
-        "comparison": "contains",
-        "points": 20,
-        "timeout": 10
-      }
-    ],
-    "setup": {
-      "pip": [
-        "pytest"
-      ]
-    },
-    "autograding": {
-      "language": "python",
-      "version": "3.x"
+  "tests": [
+    {
+      "name": "Unittest - Dog API Tests",
+      "setup": "",
+      "run": "python -m unittest dog_api_tests.py -v",
+      "input": "",
+      "output": "",
+      "comparison": "contains",
+      "points": 20,
+      "timeout": 10
     }
+  ],
+  "setup": {
+    "pip": [
+      "requests"
+    ]
+  },
+  "autograding": {
+    "language": "python",
+    "version": "3.x"
   }
-  
+}
