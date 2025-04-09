@@ -1,6 +1,33 @@
-assignment:
-  autograding:
-    tests:
-      - name: Pytest - Dog API Tests
-        run: pytest -v dog_api_tests.py
-        points: 20
+name: GitHub Classroom Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Autograding
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Install Dependencies (if needed)
+        run: |
+          pip install -r requirements.txt || true
+
+      - name: Run Unittest
+        run: python -m unittest dog_api_tests.py -v
+
+      - name: Run Autograding
+        uses: education/autograding@v1
